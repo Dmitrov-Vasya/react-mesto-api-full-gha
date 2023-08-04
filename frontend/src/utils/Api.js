@@ -78,10 +78,10 @@ class Api {
   }
 }
 const api = new Api({
-  url: 'https://mesto.nomoreparties.co/v1/cohort-64/',
+  url: 'http://mesto-dmitrov.nomoreparties.co:3000/',
 
   headers: {
-    authorization: '320a90d1-42bc-41d6-897c-289a7d3fabd1',
+    // authorization: '320a90d1-42bc-41d6-897c-289a7d3fabd1',
     'Content-Type': 'application/json',
   },
 });
