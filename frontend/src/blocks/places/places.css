@@ -1,0 +1,17 @@
+.places {
+  max-width: 880px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 282px);
+  margin-top: 36px;
+  gap: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
+
+@media screen and (min-width: 1280px) {
+  .places {
+    margin: 0;
+    gap: 20px 17px;
+  }
+}

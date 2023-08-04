@@ -1,0 +1,16 @@
+.authForm__reg {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.authForm__reg:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

@@ -1,0 +1,14 @@
+.popup__form_type_delete {
+  padding-top: 18px;
+  padding-left: 22px;
+  padding-right: 22px;
+  display: block;
+}
+
+@media screen and (min-width: 1280px) {
+  .popup__form_type_delete {
+    padding-top: 0;
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+}
