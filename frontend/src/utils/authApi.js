@@ -1,7 +1,7 @@
 export const baseURL = 'http://mesto-dmitrov.nomoreparties.co:3000';
 
 export function checkResponse(res) {
-  return response.ok ? res.json() : Promise.reject(`Ошибка ${res.status}`);
+  return res.ok ? res.json() : Promise.reject(`Ошибка ${res.status}`);
 }
 
 export const register = ({ password, email }) => {
