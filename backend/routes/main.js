@@ -2,12 +2,12 @@ const router = require('express').Router();
 const {
   celebrate, Joi, Segments,
 } = require('celebrate');
-const { login, createUser } = require('./controllers/users');
-const NotFoundError = require('./errors/NotFoundError');
+const { login, createUser } = require('../controllers/users');
+const NotFoundError = require('../errors/NotFoundError');
 
-const usersRouter = require('./routes/users');
-const cardsRouter = require('./routes/cards');
-// const auth = require('./middlewares/auth');
+const usersRouter = require('./users');
+const cardsRouter = require('./cards');
+const auth = require('../middlewares/auth');
 
 const regex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
 
@@ -48,7 +48,7 @@ router.post(
 );
 
 // с проверкой авторизации
-// router.use(auth);
+router.use(auth);
 router.use('/users', usersRouter);
 router.use('/cards', cardsRouter);
 router.use('/*', (req, res, next) => {
