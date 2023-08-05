@@ -48,7 +48,7 @@ function App() {
 
   const checkToken = () => {
     authApi
-        .checkToken(jwt)
+        .checkToken()
         .then((user) => {
           if (user) {
             setIsLoading(true);
