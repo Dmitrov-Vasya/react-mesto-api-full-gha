@@ -188,12 +188,9 @@ function App() {
     authApi
       .authorize(data)
       .then((data) => {
-        if (data.token) {
-          localStorage.setItem('jwt', data.token);
           setLoggedIn(true);
-          setEmail(email);
-          navigate('/');
-        }
+          setEmail(data.email);
+          navigate('/');        
       })
       .catch((err) => {
         console.log(err);
