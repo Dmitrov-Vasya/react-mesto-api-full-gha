@@ -7,9 +7,10 @@ const BadRequest = require('../errors/BadRequest');
 
 const login = (req, res, next) => {
   const { email, password } = req.body;
+  const { NODE_ENV, JWT_SECRET } = process.env;
   User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, 'bUKN7CkRUJuzC4hJhevpz9m3', {
+      const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'bUKN7CkRUJuzC4hJhevpz9m3', {
         expiresIn: '7d',
       });
       res.cookie('access_token', token, { httpOnly: true })
