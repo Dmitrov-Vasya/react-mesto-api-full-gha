@@ -1,4 +1,4 @@
-export const baseURL = 'http://mesto-dmitrov.nomoreparties.co:3000';
+export const baseURL = 'http://mesto-dmitrov.nomoreparties.co';
 
 export function checkResponse(res) {
   return res.ok ? res.json() : Promise.reject(`Ошибка ${res.status}`);
