@@ -46,26 +46,24 @@ function App() {
         .catch((err) => console.log(err));
   }, [loggedIn]);
 
-  // const checkToken = () => {
-  //   const jwt = localStorage.getItem('jwt');
-  //   if (jwt) {
-  //     authApi
-  //       .checkToken(jwt)
-  //       .then((user) => {
-  //         if (user) {
-  //           setIsLoading(true);
-  //           setLoggedIn(true);
-  //         }
-  //       })
-  //       .catch(console.log);
-  //   } else {
-  //     setIsLoading(true);
-  //   }
-  // };
+  const checkToken = () => {
+    authApi
+        .checkToken(jwt)
+        .then((user) => {
+          if (user) {
+            setIsLoading(true);
+            setLoggedIn(true);
+          }
+        })
+        .catch((err) =>  {
+          setIsLoading(true);
+          console.log(err);
+        });
+  };
 
-  // useEffect(() => {
-  //   checkToken();
-  // }, []);
+  useEffect(() => {
+    checkToken();
+  }, []);
 
   function handleClickMenu() {
     isLoginForm ? navigate('/sign-up') : navigate('/sign-in');

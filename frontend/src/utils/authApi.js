@@ -28,14 +28,14 @@ export const authorize = ({ email, password }) => {
   }).then(checkResponse);
 };
 
-// export const checkToken = (token) => {
-//   return fetch(`${baseURL}/users/me`, {
-//     method: 'GET',
-//     headers: {
-//       Accept: 'application/json',
-//       'Content-Type': 'application/json',
-//       credentials: 'include',
-//       Authorization: `Bearer ${token}`,
-//     },
-//   }).then(checkResponse);
-// };
+export const checkToken = () => {
+  return fetch(`${baseURL}/users/me`, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      credentials: 'include',
+      // Authorization: `Bearer ${token}`,
+    },
+  }).then(checkResponse);
+};
