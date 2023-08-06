@@ -132,6 +132,7 @@ function App() {
   }
 
   function handleNewCard(card) {
+    console.log(card);
     api
       .addNewCard(card)
       .then((newCard) => {
@@ -140,6 +141,7 @@ function App() {
       })
       .catch((err) => console.log(err));
   }
+  
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
@@ -147,10 +149,10 @@ function App() {
 
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api
-      .displayNumberLike(card._id, !isLiked)
+      .displayNumberLike(card._id, isLiked)
       .then((newCard) => {
         setCards((state) =>
-          state.map((c) => (c._id === card._id ? newCard : c))
+          state.map((i) => (i._id === card._id ? newCard : c))
         );
       })
       .catch((err) => console.log(err));
@@ -161,7 +163,7 @@ function App() {
     api
       .deleteCard(selectedCard._id)
       .then(() => {
-        setCards(cards.filter((card) => card._id !== selectedCard._id));
+        setCards(cards.filter((i) => i._id !== selectedCard._id));
         closeAllPopups();
       })
       .catch((err) => console.log(err));
