@@ -10,8 +10,8 @@ export const register = ({ password, email }) => {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      credentials: 'include',
-    },
+      },
+    credentials: 'include',
     body: JSON.stringify({ password, email }),
   }).then(checkResponse);
 };
@@ -22,8 +22,8 @@ export const authorize = ({ email, password }) => {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      credentials: 'include',
     },
+    credentials: 'include',
     body: JSON.stringify({ email, password }),
   }).then(checkResponse);
 };
@@ -34,8 +34,9 @@ export const checkToken = () => {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      credentials: 'include',
+      
       // Authorization: `Bearer ${token}`,
     },
+    credentials: 'include',
   }).then(checkResponse);
 };
