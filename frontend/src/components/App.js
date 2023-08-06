@@ -150,7 +150,7 @@ function App() {
       .displayNumberLike(card._id, !isLiked)
       .then((newCard) => {
         setCards((state) =>
-          state.map((c) => (c._id === currentUser._id ? newCard : c))
+          state.map((c) => (c._id === card._id ? newCard : c))
         );
       })
       .catch((err) => console.log(err));
