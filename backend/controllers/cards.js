@@ -5,6 +5,7 @@ const Card = require('../models/card');
 const NotFoundError = require('../errors/NotFoundError');
 const BadRequest = require('../errors/BadRequest');
 const AccessError = require('../errors/AccessError');
+const ServerError = require('../errors/ServerError');
 
 const createCard = (req, res, next) => {
   const { name, link } = req.body;
@@ -18,7 +19,7 @@ const createCard = (req, res, next) => {
       if (err.name === 'ValidationError') {
         next(new BadRequest('Переданы некорректные данные при создании карточки'));
       } else {
-        next(new Error('Ошибка Сервера'));
+        next(new ServerError('Ошибка Сервера'));
       }
     });
 };
@@ -32,7 +33,7 @@ const getCards = (req, res, next) => {
       if (err.name === 'CastError') {
         next(new BadRequest('Переданы некорректные данные при создании карточки'));
       } else {
-        next(new Error('Ошибка Сервера'));
+        next(new ServerError('Ошибка Сервера'));
       }
     });
 };
