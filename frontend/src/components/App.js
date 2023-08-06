@@ -145,14 +145,14 @@ function App() {
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser);
 
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api
-      .displayNumberLike(card._id, isLiked)
+      .displayNumberLike(card, isLiked)
       .then((newCard) => {
         setCards((state) =>
-          state.map((i) => (i._id === card._id ? newCard : i))
+          state.map((c) => (c === card ? newCard : c))
         );
       })
       .catch((err) => console.log(err));
