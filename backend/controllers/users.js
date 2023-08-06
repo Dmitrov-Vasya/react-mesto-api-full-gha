@@ -13,7 +13,11 @@ const login = (req, res, next) => {
       const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'bUKN7CkRUJuzC4hJhevpz9m3', {
         expiresIn: '7d',
       });
-      res.cookie('access_token', token, { httpOnly: true })
+      res.cookie('access_token', token, {
+        httpOnly: true,
+        sameSite: 'none',
+        secure: NODE_ENV === 'production',
+      })
         .status(200).json({ message: 'Авторизация прошла успешна' });
     })
     .catch((err) => {

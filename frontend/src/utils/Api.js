@@ -3,6 +3,7 @@ class Api {
     this.url = config.url;
     this.headers = config.headers;
     this.body = config.body;
+    this._credentials = credentials;
   }
 
   _checkResponse(res) {
@@ -15,12 +16,14 @@ class Api {
   getInformationUser() {
     return fetch(`${this.url}users/me`, {
       headers: this.headers,
+      credentials: this._credentials,
     }).then(this._checkResponse);
   }
 
   getInitialCards() {
     return fetch(`${this.url}cards`, {
       headers: this.headers,
+      credentials: this._credentials,
     }).then(this._checkResponse);
   }
 
@@ -28,6 +31,7 @@ class Api {
     return fetch(`${this.url}users/me`, {
       method: 'PATCH',
       headers: this.headers,
+      credentials: this._credentials,
       body: JSON.stringify({
         name: name,
         about: about,
@@ -39,6 +43,7 @@ class Api {
     return fetch(`${this.url}cards`, {
       method: 'POST',
       headers: this.headers,
+      credentials: this._credentials,
       body: JSON.stringify({
         name: name,
         link: link,
@@ -50,6 +55,7 @@ class Api {
     return fetch(`${this.url}cards/${id}`, {
       method: 'DELETE',
       headers: this.headers,
+      credentials: this._credentials,
     }).then(this._checkResponse);
   }
 
@@ -57,6 +63,7 @@ class Api {
     return fetch(`${this.url}cards/${id}/likes`, {
       method: 'PUT',
       headers: this.headers,
+      credentials: this._credentials,
     }).then(this._checkResponse);
   }
 
@@ -64,6 +71,7 @@ class Api {
     return fetch(`${this.url}cards/${id}/likes`, {
       method: 'DELETE',
       headers: this.headers,
+      credentials: this._credentials,
     }).then(this._checkResponse);
   }
 
@@ -71,6 +79,7 @@ class Api {
     return fetch(`${this.url}users/me/avatar`, {
       method: 'PATCH',
       headers: this.headers,
+      credentials: this._credentials,
       body: JSON.stringify({
         avatar: avatar,
       }),
