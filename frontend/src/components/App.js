@@ -148,7 +148,7 @@ function App() {
     const isLiked = card.likes.some((i) => i === currentUser._id);
 
     // Отправляем запрос в API и получаем обновлённые данные карточки
-    if(isLiked) {api
+    if(!isLiked) {api
       .displayNumberLike(card._id)
     .then((newCard) => {
         setCards((state) =>
