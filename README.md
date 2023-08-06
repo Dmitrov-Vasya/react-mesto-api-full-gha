@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.37.196
+IP  158.160.37.196
 
 Frontend https://mesto-dmitrov.nomoreparties.co/
 

@@ -1,3 +1,4 @@
+const dotenv = require('dotenv');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -6,7 +7,6 @@ const { errors } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const router = require('./routes/main');
 const cors = require('./middlewares/cors');
-const dotenv = require('dotenv');
 
 dotenv.config();
 // console.log(process.env.NODE_ENV);
