@@ -3,7 +3,7 @@ class Api {
     this.url = config.url;
     this.headers = config.headers;
     this.body = config.body;
-    this._credentials = credentials;
+    this._credentials = config.credentials;
   }
 
   _checkResponse(res) {
