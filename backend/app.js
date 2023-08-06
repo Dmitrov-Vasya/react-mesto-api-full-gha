@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(requestLogger);
 
-app.use('/api', router);
+app.use('/', router);
 // app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(errorLogger);
