@@ -12,7 +12,6 @@ const cardScheva = new mongoose.Schema({
   link: {
     type: String,
     required: true,
-    minlength: 2,
     validate: {
       validator: (v) => validator.isURL(v),
       message: (value) => `${value} - Введена некорректная ссылка`,
