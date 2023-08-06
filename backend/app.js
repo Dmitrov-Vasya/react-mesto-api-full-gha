@@ -9,7 +9,7 @@ const cors = require('./middlewares/cors');
 const dotenv = require('dotenv');
 
 dotenv.config();
-console.log(process.env.NODE_ENV);
+// console.log(process.env.NODE_ENV);
 
 const app = express();
 
