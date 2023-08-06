@@ -34,7 +34,7 @@ router.patch(
   '/me/avatar',
   celebrate({
     [Segments.BODY]: Joi.object().keys({
-      avatar: Joi.string().min(2).required().regexURL(regexURL),
+      avatar: Joi.string().min(2).required().regex(regexURL),
     }),
   }),
   updateAvatar,

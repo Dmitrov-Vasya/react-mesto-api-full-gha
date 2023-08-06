@@ -13,7 +13,7 @@ router.post(
   celebrate({
     [Segments.BODY]: Joi.object().keys({
       name: Joi.string().min(2).max(30).required(),
-      link: Joi.string().min(2).required().regexURL(regexURL),
+      link: Joi.string().min(2).required().regex(regexURL),
     }),
   }),
   createCard,
