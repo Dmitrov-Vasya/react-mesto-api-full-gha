@@ -91,9 +91,8 @@ const api = new Api({
 
   headers: {
     // authorization: '320a90d1-42bc-41d6-897c-289a7d3fabd1',
-    'Content-Type': 'application/json',
-    credentials: 'include',
+    'Content-Type': 'application/json',    
   },
-  
+  credentials: 'include',  
 });
 export default api;
