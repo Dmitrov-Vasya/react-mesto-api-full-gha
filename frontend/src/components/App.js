@@ -149,10 +149,10 @@ function App() {
 
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api
-      .displayNumberLike(card, isLiked)
+      .displayNumberLike(card._id, isLiked)
       .then((newCard) => {
         setCards((state) =>
-          state.map((i) => (i === card ? newCard : i))
+          state.map((i) => (i._id === card._id ? newCard : i))
         );
       })
       .catch((err) => console.log(err));
