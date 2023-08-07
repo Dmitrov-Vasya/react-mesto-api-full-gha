@@ -5,7 +5,7 @@ const {
   getCards, createCard, deleteCards, likeCard, dislikeCard,
 } = require('../controllers/cards');
 
-const regex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
+const validationUrlRegex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
 
 router.get('/', getCards);
 router.post(
@@ -13,7 +13,7 @@ router.post(
   celebrate({
     [Segments.BODY]: Joi.object().keys({
       name: Joi.string().min(2).max(30).required(),
-      link: Joi.string().min(2).required().regex(regex),
+      link: Joi.string().min(2).required().regex(validationUrlRegex),
     }),
   }),
   createCard,

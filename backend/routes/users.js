@@ -5,7 +5,7 @@ const {
   getUsers, getUser, updateProfile, updateAvatar, getUsersData,
 } = require('../controllers/users');
 
-const regex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
+const validationUrlRegex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
 
 router.get('/', getUsers);
 router.get('/me', getUsersData);
@@ -34,7 +34,7 @@ router.patch(
   '/me/avatar',
   celebrate({
     [Segments.BODY]: Joi.object().keys({
-      avatar: Joi.string().min(2).required().regex(regex),
+      avatar: Joi.string().min(2).required().regex(validationUrlRegex),
     }),
   }),
   updateAvatar,

@@ -9,7 +9,7 @@ const usersRouter = require('./users');
 const cardsRouter = require('./cards');
 const auth = require('../middlewares/auth');
 
-const regex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
+const validationUrlRegex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
 
 router.get('/crash-test', () => {
   setTimeout(() => {
@@ -41,7 +41,7 @@ router.post(
         .default(
           'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
         )
-        .regex(regex),
+        .regex(validationUrlRegex),
     }),
   }),
   createUser,
