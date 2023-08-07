@@ -26,7 +26,7 @@ const login = (req, res, next) => {
 };
 
 const logout = (req, res) => {
-  res.clearCoockie('access_token')
+  res.clearCookie('access_token')
     .status(200).send({ message: 'Выход прошел успешно' });
 };
 
