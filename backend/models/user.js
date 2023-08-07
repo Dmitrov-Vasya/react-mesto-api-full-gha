@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
 const AuthorizationError = require('../errors/AuthorizationError');
 
-const userScheva = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   name: {
     type: String,
     default: 'Жак-Ив Кусто',
@@ -41,7 +41,7 @@ const userScheva = new mongoose.Schema({
   },
 });
 
-userScheva.statics.findUserByCredentials = function findUserByCredentials(email, password) {
+userSchema.statics.findUserByCredentials = function findUserByCredentials(email, password) {
   this.findOne({ email })
     .select('+password')
     .then((user) => {
@@ -57,6 +57,6 @@ userScheva.statics.findUserByCredentials = function findUserByCredentials(email,
     });
 };
 
-const User = mongoose.model('user', userScheva);
+const User = mongoose.model('user', userSchema);
 
 module.exports = User;
