@@ -69,9 +69,17 @@ function App() {
     isLoginForm ? navigate('/sign-up') : navigate('/sign-in');
   }
   function handleLogout() {
-    localStorage.removeItem('jwt');
-    navigate('/sign-in', { replace: 'true' });
-    setLoggedIn(false);
+    authApi
+      .logout()
+      .then(() => {
+          setLoggedIn(false);
+          navigate('/sign-in', { replace: 'true' });
+        })
+        .catch((err) =>  {
+          setLoggedIn(false);
+          navigate('/sign-in', { replace: 'true' });
+          console.log(err);
+        });
   }
 
   function handleEditAvatarClick() {

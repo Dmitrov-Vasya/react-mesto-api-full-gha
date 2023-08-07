@@ -2,7 +2,7 @@ const router = require('express').Router();
 const {
   celebrate, Joi, Segments,
 } = require('celebrate');
-const { login, createUser } = require('../controllers/users');
+const { login, logout, createUser } = require('../controllers/users');
 const NotFoundError = require('../errors/NotFoundError');
 
 const usersRouter = require('./users');
@@ -28,6 +28,8 @@ router.post(
   }),
   login,
 );
+
+router.post('/signout', logout);
 
 router.post(
   '/signup',

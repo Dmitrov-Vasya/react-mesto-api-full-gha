@@ -25,6 +25,11 @@ const login = (req, res, next) => {
     });
 };
 
+const logout = (req, res) => {
+  res.clearCoockie('access_token')
+    .status(200).send({ message: 'Выход прошел успешно' });
+};
+
 const createUser = async (req, res, next) => {
   try {
     const {
@@ -141,4 +146,5 @@ module.exports = {
   updateAvatar,
   login,
   getUsersData,
+  logout,
 };
