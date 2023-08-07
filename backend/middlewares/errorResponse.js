@@ -3,6 +3,6 @@ module.exports = (err, req, res, next) => {
   const { message } = err;
   res
     .status(statusCode)
-    .json({ message: statusCode === 500 ? 'Ошибка Сервера' : message });
+    .json({ message: statusCode === 500 ? 'Ошибка Сервера' : message, details: err });
   next();
 };
