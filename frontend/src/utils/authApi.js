@@ -30,7 +30,7 @@ export const authorize = ({ email, password }) => {
 
 export const logout = () => {
   return fetch(`${baseURL}/signout`, {
-    method: 'POST',
+    method: 'GET',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',

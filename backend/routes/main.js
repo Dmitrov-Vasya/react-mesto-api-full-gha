@@ -29,7 +29,7 @@ router.post(
   login,
 );
 
-router.post('/signout', logout);
+router.get('/signout', logout);
 
 router.post(
   '/signup',
