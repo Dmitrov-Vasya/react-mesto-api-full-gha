@@ -41,19 +41,21 @@ const userScheva = new mongoose.Schema({
   },
 });
 
-userScheva.statics.findUserByCredentials = (email, password) => this.findOne({ email })
-  .select('+password')
-  .then((user) => {
-    if (!user) {
-      throw new AuthorizationError('Неправильные почта или пароль');
-    }
-    return bcrypt.compare(password, user.password).then((matched) => {
-      if (!matched) {
+userScheva.statics.findUserByCredentials = function findUserByCredentials(email, password) {
+  this.findOne({ email })
+    .select('+password')
+    .then((user) => {
+      if (!user) {
         throw new AuthorizationError('Неправильные почта или пароль');
       }
-      return user;
+      return bcrypt.compare(password, user.password).then((matched) => {
+        if (!matched) {
+          throw new AuthorizationError('Неправильные почта или пароль');
+        }
+        return user;
+      });
     });
-  });
+};
 
 const User = mongoose.model('user', userScheva);
 
