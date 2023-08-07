@@ -18,7 +18,7 @@ const login = (req, res, next) => {
         sameSite: 'none',
         secure: NODE_ENV === 'production',
       })
-        .status(200).json({ message: 'Авторизация прошла успешна' });
+        .status(200).send({ message: 'Авторизация прошла успешна' });
     })
     .catch((err) => {
       next(err);
