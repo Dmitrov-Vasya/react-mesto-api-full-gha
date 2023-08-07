@@ -6,7 +6,6 @@ const NotFoundError = require('../errors/NotFoundError');
 const BadRequest = require('../errors/BadRequest');
 const AccessError = require('../errors/AccessError');
 
-
 const createCard = (req, res, next) => {
   const { name, link } = req.body;
   const owner = req.user._id;
